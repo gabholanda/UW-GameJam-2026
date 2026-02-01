@@ -82,6 +82,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = speed * direction;
+	if (rb.linearVelocity.magnitude > 0) {
+		GetComponent<Animator>().Play("moving");
+	} else {
+		GetComponent<Animator>().Play("idle");
+	}
+	if (direction.x < 0) {
+		GetComponent<SpriteRenderer>().flipX = true;
+	} else if (direction.x > 0) {
+		GetComponent<SpriteRenderer>().flipX = false;
+	}
     }
 
     public void SetCurrentGuest(NPCBehaviour currentGuest_)
