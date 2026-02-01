@@ -11,4 +11,6 @@ public class NPCData : ScriptableObject
     public List<string> clues = new();
     public List<string> fakeClues = new();
     public DialogueContainer dialogueContainer;
+    public Vector3 maskPosition;
+    public string color;
 }

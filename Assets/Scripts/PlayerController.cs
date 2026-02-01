@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         }
 
         cineCamera.Target.TrackingTarget = currentGuest.transform;
-        StartCoroutine(StartZoom(400, 10));
+        StartCoroutine(StartZoom(200, 10));
         canMove = false;
         currentGuest.Talk();
     }

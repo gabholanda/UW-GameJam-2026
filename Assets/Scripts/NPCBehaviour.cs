@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum NPCStates
 {
@@ -33,6 +34,8 @@ public class NPCBehaviour : MonoBehaviour
     public NPCStates currentState = NPCStates.Idle;
     private NPCStates lastStateBeforeTalking;
 
+    public GameObject mask;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,11 +45,16 @@ public class NPCBehaviour : MonoBehaviour
         executeObject.enabled = false;
     }
 
-    public void Initialize(NPCData npcData)
+    public void Initialize(NPCData npcData, Sprite maskSprite)
     {
         textObject.text = npcData.dialogueContainer.dialogue;
         NPCName = npcData.targetName;
         NPCSobriet = npcData.targetSobriet;
+
+        mask.transform.position = npcData.maskPosition;
+        mask.GetComponent<Animator>().Play("Mask_Move");
+        mask.GetComponent<SpriteRenderer>().sprite = maskSprite;
+        gameObject.GetComponent<Animator>().Play(npcData.color);
     }
 
     public void SetFakeClue(string fakeClue)

@@ -332,6 +332,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c7db5430cbed8149a1ad0e1a80444a8, type: 2}
   - {fileID: 11400000, guid: 6587d434c9462fb42ad11b37887a784f, type: 2}
   NPCs: []
+  masks:
+  - {fileID: 7766154047056875960, guid: 4443fe608be6cf04faba1fb7b71fc26e, type: 3}
+  - {fileID: 3851408765116263757, guid: 6690203b4f7bf104daaac97f985400a2, type: 3}
+  - {fileID: -181905478046682760, guid: 6f42295dd8de30b47a2189893775fda2, type: 3}
+  - {fileID: -306591318828018373, guid: dd26bf99b62b3b44eb5b7673072fe42b, type: 3}
+  - {fileID: 3850103377917135305, guid: fd15cb135a3476a4dadfdbfbb37f9543, type: 3}
+  - {fileID: -8315826000230578096, guid: 8fdd41b7399b4c1458774c7eba97e687, type: 3}
+  - {fileID: 4958111978904231563, guid: 4873f114fdc9891418579f67e6de0021, type: 3}
+  - {fileID: -3731909195481651320, guid: b511308cd441e614fa5176f425fe0aac, type: 3}
   NPCPrefab: {fileID: 4048931920723014794, guid: bcd7bebd1e04c224fb9826b9b43b364f, type: 3}
   finalTarget: {fileID: 0}
   finalTargetData: {fileID: 0}

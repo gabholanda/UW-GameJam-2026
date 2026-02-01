@@ -19,3 +19,5 @@ MonoBehaviour:
   fakeClues:
   - Test
   dialogueContainer: {fileID: 11400000, guid: 7a94b42c85931b24080c6f5576b7d9b4, type: 2}
+  maskPosition: {x: 0.023, y: 3.469, z: 0}
+  color: orangeman_walk

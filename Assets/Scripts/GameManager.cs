@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public List<NPCData> targetsData;
 
     public List<GameObject> NPCs;
+
+    public List<Sprite> masks;
     public GameObject NPCPrefab;
 
     public GameObject finalTarget;
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject panelObject;
     public GameObject rightText;
     public GameObject wrongText;
+
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject NPCObj = Instantiate(NPCPrefab, new Vector2(Random.Range(-25, 13), Random.Range(-7, 15)), Quaternion.identity);
             //NPCObj.GetComponent<Animator>().runtimeAnimatorController = targetsData[i].animController;
-            NPCObj.GetComponent<NPCBehaviour>().Initialize(finalTargetData);
+            NPCObj.GetComponent<NPCBehaviour>().Initialize(targetsData[Random.Range(0, targetsData.Count)], masks[Random.Range(0, masks.Count)]);
             NPCs.Add(NPCObj);
         }
     }

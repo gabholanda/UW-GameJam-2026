@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5a58b5fb91a7f418083f06ffdd5798, type: 3}
   m_Name: TGT_Baron
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
-  animController: {fileID: 0}
+  animController: {fileID: 9100000, guid: 5a5f341b3869fa74f9c45e9a5172d6ab, type: 2}
   targetName: Patrick
   targetSobriet: Star
   clues: []
   fakeClues:
   - Test
   dialogueContainer: {fileID: 11400000, guid: 7a94b42c85931b24080c6f5576b7d9b4, type: 2}
+  maskPosition: {x: 0.023, y: 3.469, z: 0}
+  color: ceruleanman_walk
