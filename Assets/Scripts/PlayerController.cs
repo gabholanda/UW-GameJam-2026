@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private InputActionAsset inputAsset;
 
+    [SerializeField]
+    private CinemachineCamera cineCamera;
+
     private Vector2 direction = Vector2.zero;
 
     [SerializeField]
@@ -48,13 +51,12 @@ public class PlayerController : MonoBehaviour
             currentGuest.CleanUpDialogue();
             currentGuest.EndTalk();
             currentGuest = null;
-            Camera.main.GetComponent<CinemachineCamera>().Target.TrackingTarget = null;
-            Camera.main.transform.position = new Vector3(0, 0, -10);
+            cineCamera.Target.TrackingTarget = transform;
             StartCoroutine(StartZoom(100, 20));
             canMove = true;
             return;
         }
-        Camera.main.GetComponent<CinemachineCamera>().Target.TrackingTarget = currentGuest.transform;
+        cineCamera.Target.TrackingTarget = currentGuest.transform;
         StartCoroutine(StartZoom(500, 10));
         canMove = false;
         currentGuest.Talk();
