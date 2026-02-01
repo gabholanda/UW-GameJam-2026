@@ -37,6 +37,21 @@ public class PlayerController : MonoBehaviour
         InputAction interactAction = inputAsset.FindAction("Interact");
 
         interactAction.started += OnInteract;
+
+
+        InputAction executeAction = inputAsset.FindAction("Execute");
+
+        executeAction.started += OnExecute;
+    }
+
+    private void OnExecute(InputAction.CallbackContext context)
+    {
+        if(!currentGuest)
+        {
+            return;
+        }
+
+        GameManager.Instance.ExecuteTarget(currentGuest.gameObject);
     }
 
     private void OnInteract(InputAction.CallbackContext context)
@@ -56,8 +71,9 @@ public class PlayerController : MonoBehaviour
             canMove = true;
             return;
         }
+
         cineCamera.Target.TrackingTarget = currentGuest.transform;
-        StartCoroutine(StartZoom(500, 10));
+        StartCoroutine(StartZoom(400, 10));
         canMove = false;
         currentGuest.Talk();
     }

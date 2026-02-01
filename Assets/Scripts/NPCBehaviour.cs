@@ -10,10 +10,13 @@ public enum NPCStates
 
 public class NPCBehaviour : MonoBehaviour
 {
-    public DialogueContainer dialogueContainer;
+    public string dialogueText;
+    public string NPCName;
+    public string NPCSobriet;
 
     [SerializeField] private TMPro.TextMeshPro textObject;
     [SerializeField] private TMPro.TextMeshPro interactObject;
+    [SerializeField] private TMPro.TextMeshPro executeObject;
 
     [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 1.5f;
@@ -34,9 +37,21 @@ public class NPCBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        textObject.text = dialogueContainer.dialogue;
         textObject.enabled = false;
         interactObject.enabled = false;
+        executeObject.enabled = false;
+    }
+
+    public void Initialize(NPCData npcData)
+    {
+        textObject.text = npcData.dialogueContainer.dialogue;
+        NPCName = npcData.targetName;
+        NPCSobriet = npcData.targetSobriet;
+    }
+
+    public void SetFakeClue(string fakeClue)
+    {
+        textObject.text = fakeClue;
     }
 
     private void Start()
@@ -117,12 +132,16 @@ public class NPCBehaviour : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isAlreadyTalkedWith) return;
         if (!collision.CompareTag("Player")) return;
 
         PlayerController playerController = collision.GetComponent<PlayerController>();
         playerController.SetCurrentGuest(this);
 
+        if (isAlreadyTalkedWith)
+        {
+            executeObject.enabled = true;
+            return;
+        }
         interactObject.enabled = true;
     }
 
@@ -142,5 +161,6 @@ public class NPCBehaviour : MonoBehaviour
     {
         interactObject.enabled = false;
         textObject.enabled = false;
+        executeObject.enabled = false;
     }
 }
